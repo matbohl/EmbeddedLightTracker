@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: touchscreen
+# Project: EmbeddedLightTracker
 # Configurations: 
 # =============================================================================
 # =============================================================================
@@ -14,7 +14,7 @@
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__touchscreen.2eelf_
+rule C_COMPILER__EmbeddedLightTracker.2eelf_
   depfile = $DEP_FILE
   deps = gcc
   command = C:\Users\mathi\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin\xtensa-esp32s3-elf-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule C_COMPILER__touchscreen.2eelf_
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__touchscreen.2eelf_
+rule CXX_EXECUTABLE_LINKER__EmbeddedLightTracker.2eelf_
   command = cmd.exe /C "$PRE_LINK && C:\Users\mathi\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin\xtensa-esp32s3-elf-g++.exe $FLAGS $LINK_FLAGS @$RSP_FILE -o $TARGET_FILE  && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   rspfile = $RSP_FILE
@@ -1887,7 +1887,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_main_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\Users\mathi\.espressif\tools\cmake\3.24.0\bin\cmake.exe --regenerate-during-build -SC:\Users\mathi\Desktop\FH_Technikum\Semester_5\ESP_IDF\touchscreen -BC:\Users\mathi\Desktop\FH_Technikum\Semester_5\ESP_IDF\touchscreen\build
+  command = C:\Users\mathi\.espressif\tools\cmake\3.24.0\bin\cmake.exe --regenerate-during-build -SC:\Users\mathi\Desktop\FH_Technikum\Semester_5\ESP_IDF\EmbeddedLightTracker -BC:\Users\mathi\Desktop\FH_Technikum\Semester_5\ESP_IDF\EmbeddedLightTracker\build
   description = Re-running CMake...
   generator = 1
 

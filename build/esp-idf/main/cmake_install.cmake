@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/mathi/Desktop/FH_Technikum/Semester_5/ESP_IDF/touchscreen/main
+# Install script for directory: C:/Users/mathi/Desktop/FH_Technikum/Semester_5/ESP_IDF/EmbeddedLightTracker/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/touchscreen")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/EmbeddedLightTracker")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

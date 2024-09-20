@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/mathi/Desktop/FH_Technikum/Semester_5/ESP_IDF/touchscreen/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/mathi/Desktop/FH_Technikum/Semester_5/ESP_IDF/EmbeddedLightTracker/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)
