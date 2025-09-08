@@ -130,6 +130,7 @@ esp_err_t lvgl_port_remove_encoder(lv_indev_t *encoder)
 
 static void lvgl_port_encoder_read(lv_indev_t *indev_drv, lv_indev_data_t *data)
 {
+    #define ENCODER_MAX_STEP 5
     static int32_t last_v = 0;
     assert(indev_drv);
     lvgl_port_encoder_ctx_t *ctx = (lvgl_port_encoder_ctx_t *)lv_indev_get_user_data(indev_drv);
@@ -137,13 +138,26 @@ static void lvgl_port_encoder_read(lv_indev_t *indev_drv, lv_indev_data_t *data)
 
     int32_t invd = iot_knob_get_count_value(ctx->knob_handle);
     knob_event_t event = iot_knob_get_event(ctx->knob_handle);
+    
+    int32_t diff = invd - last_v; 
+    last_v = invd;
 
-    if (last_v ^ invd) {
-        last_v = invd;
-        data->enc_diff = (KNOB_LEFT == event) ? (-1) : ((KNOB_RIGHT == event) ? (1) : (0));
-    } else {
-        data->enc_diff = 0;
+    //if (last_v ^ invd) {
+    //    last_v = invd;
+    //    data->enc_diff = (KNOB_LEFT == event) ? (-1) : ((KNOB_RIGHT == event) ? (1) : (0));
+    //} else {
+    //    data->enc_diff = 0;
+    //}
+
+    if (diff > ENCODER_MAX_STEP) {
+        diff = ENCODER_MAX_STEP;
+    } else if (diff < -ENCODER_MAX_STEP) {
+        diff = -ENCODER_MAX_STEP;
     }
+    
+    data->enc_diff = diff;
+
+    
     data->state = (true == ctx->btn_enter) ? LV_INDEV_STATE_PRESSED : LV_INDEV_STATE_RELEASED;
 }
 
